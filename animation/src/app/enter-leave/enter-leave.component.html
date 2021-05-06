@@ -1,0 +1,19 @@
+<h3>Enter Leave Animation</h3>
+
+<div class="mt-4">
+    <button (click)="page = 1" class="btn btn-primary mr-2">
+        Page 1
+    </button>
+    <button (click)="page = 2" class="btn btn-success mr-2">
+        Page 2
+    </button>
+    <button (click)="page = 3" class="btn btn-danger">
+        Page 3
+    </button>
+</div>
+
+<div [ngSwitch]="page" class="wrapper">
+    <div *ngSwitchCase="1" @enterLeave class="bg-primary"></div>
+    <div *ngSwitchCase="2" @enterLeave class="bg-success"></div>
+    <div *ngSwitchCase="3" @enterLeave class="bg-danger"></div>
+</div>

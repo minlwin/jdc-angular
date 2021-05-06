@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
+  <div class="container">
+    <span class="navbar-brand">
+      <i class="fa fa-home"></i> Animation
+    </span>
+
+    <ul class="navbar-nav">
+
+      <li class="nav-item">
+        <a [routerLink]="['/open-close']" routerLinkActive="active" class="nav-link">Open Close</a>
+      </li>
+
+      <li class="nav-item">
+        <a [routerLink]="['/enter-leave']" routerLinkActive="active" class="nav-link">Enter Leave</a>
+      </li>
+
+      <li class="nav-item">
+        <a [routerLink]="['/inc-dec']" routerLinkActive="active" class="nav-link">Increment & Decrement</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+
+<div class="container pt-4">
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,7 @@
+<h3>Open And Close Animation</h3>
+
+<button (click)="isOpen = !isOpen" class="btn btn-primary mt-4">
+    {{isOpen ? 'Close' :'Open'}}
+</button>
+
+<div [@openClose]="isOpen" id="target"></div>
