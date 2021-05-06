@@ -1,0 +1,19 @@
+<div class="card">
+    <h3 class="header">List Component</h3>
+
+    <div class="body">
+
+        <!-- List -->
+        <div class="list">
+            <div *ngFor="let item of list" class="item">
+                <h3 class="main">{{item.message}}</h3>
+                <span class="dim">{{item.date | date: 'yyyy-MM-dd HH:mm:ss'}}</span>
+            </div>
+        </div>
+
+        <!-- Button -->
+        <button [routerLink]="['/input']" class="btn btn-gray">
+            Add Message
+        </button>
+    </div>
+</div>

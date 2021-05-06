@@ -1,0 +1,50 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+/* You can add global styles to this file, and also import other style files */
+
+@layer components {
+    .card {
+        @apply p-6 shadow rounded-lg border-solid border-2 border-gray-400
+    }
+
+    .card > .header {
+        @apply text-xl font-medium text-red-500
+    }
+
+    .card > .body {
+        @apply py-4
+    }
+
+    .input {
+        @apply block my-2 min-w-full py-2 px-4 bg-gray-100 rounded border-b-2 border-gray-500 focus:outline-none
+    }
+
+    .btn {
+        @apply px-4 py-2 mt-2 rounded
+    }
+
+    .btn.btn-gray {
+        @apply hover:bg-gray-300 hover:text-black bg-gray-500 text-white 
+    }
+
+    .list {
+        @apply grid grid-cols-1 gap-4 py-4
+    }
+
+    .list .item {
+        @apply p-4 bg-gray-100 rounded border-b-2 border-gray-500
+    }
+
+    .main {
+        @apply text-xl text-gray-900
+    }
+
+    .dim {
+        @apply text-sm text-gray-600
+    }
+
+}
+
