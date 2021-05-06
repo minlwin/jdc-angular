@@ -1,0 +1,16 @@
+<div class="container pt-5">
+  <h1 class="text-center">{{title}}</h1>
+
+  <div class="d-flex justify-content-center pt-5">
+
+    <button (click)="count = count -1 " class="btn btn-primary">
+      Count Down
+    </button>
+
+    <h3 class="mr-3 ml-3">{{count}}</h3>
+
+    <button (click)="count = count + 1" class="btn btn-primary">
+      Count Up
+    </button>
+  </div>
+</div>

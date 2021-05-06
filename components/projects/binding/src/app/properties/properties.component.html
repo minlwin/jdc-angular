@@ -1,0 +1,36 @@
+<h3>DOM Properties</h3>
+
+<button [disabled]="status != true">Sample</button>
+
+<table class="table table-bordered mt-4">
+    <tr>
+        <td [rowSpan]="2">
+            One<br />
+            Using rowSpan Properties
+        </td>
+        <td>Two</td>
+        <td>Three</td>
+    </tr>
+    <tr>
+        <td [colSpan]="2">Using colSpan Properties</td>
+    </tr>
+</table>
+
+<h3 class="mt-4 mb-4">Component Properties</h3>
+
+<user-widget [data]="aung" title="User Details"></user-widget>
+
+<h3 class="mt-4 mb-4">Directive Properties</h3>
+
+<div>
+    <button (click)="viewCode = 1" class="btn btn-primary mr-2">View 1</button>
+    <button (click)="viewCode = 2" class="btn btn-success mr-2">View 2</button>
+    <button (click)="viewCode = 3" class="btn btn-danger mr-2">View 3</button>
+</div>
+
+<div class="mt-4" [ngSwitch]="viewCode">
+
+    <div style="height: 100px;" *ngSwitchCase="1" class="bg-primary"></div>
+    <div style="height: 100px;" *ngSwitchCase="2" class="bg-success"></div>
+    <div style="height: 100px;" *ngSwitchDefault class="bg-danger"></div>
+</div>

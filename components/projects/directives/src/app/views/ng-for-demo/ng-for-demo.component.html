@@ -1,0 +1,53 @@
+<h3>List Group</h3>
+
+<ul class="list-group">
+    <li class="list-group-item active">States & Division</li>
+    <li *ngFor="let item of divisions" class="list-group-item">
+        {{item.mmName}}
+    </li>
+</ul>
+
+
+<h4 class="mt-4">Grid Cards</h4>
+<div class="row mt-4">
+
+    <div *ngFor="let item of divisions" class="col-4 mb-4">
+        <div class="card">
+            <div class="card-header">
+                <!-- Region -->
+                {{item.region}}
+            </div>
+            <div class="card-body">
+                <!-- Name -->
+                {{item.name}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3 class="mt-4">Table Rows</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Index</th>
+            <th>Even</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Burmese Name</th>
+            <th>Capital</th>
+            <th>Region</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let item of divisions; index as i, even as e">
+            <td>{{i}}</td>
+            <td>{{e}}</td>
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.mmName}}</td>
+            <td>{{item.capital}}</td>
+            <td>{{item.region}}</td>
+        </tr>
+    </tbody>
+</table>

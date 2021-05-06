@@ -1,0 +1,18 @@
+<h3>Attributes Binding</h3>
+
+<table class="table table-bordered">
+    <tr>
+        <td>One</td>
+        <td>Two</td>
+        <td>Three</td>
+        <td [attr.rowspan]="three">Row Span Three</td>
+    </tr>
+    <tr>
+        <td>One</td>
+        <td [attr.colspan]="two">Col Span Two</td>
+    </tr>
+
+    <tr>
+        <td [attr.colspan]="three">Col Span Three</td>
+    </tr>
+</table>

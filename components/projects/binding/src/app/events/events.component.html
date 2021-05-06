@@ -1,0 +1,35 @@
+<div class="card">
+    <div class="card-header">Key Event</div>
+    <div class="card-body row">
+        <div class="col">
+            <input #input type="text" (keyup)="message = input.value" placeholder="Enter Message" class="form-control">
+        </div>
+
+        <div class="col">
+            <span>{{message}}</span>
+        </div>
+
+        <div class="col">
+            <span>{{input.value}}</span>
+        </div>
+    </div>
+</div>
+
+<div class="card mt-4">
+    <div class="card-header">Change Event</div>
+    <div class="card-body row">
+        <div class="col">
+            <select #select (change)="changeOuput.innerText = select.value" class="form-control">
+                <option value="">Select One</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="TypeScript">TypeScript</option>
+                <option value="RxJS">RxJS</option>
+                <option value="Angular">Angular</option>
+            </select>
+        </div>
+
+        <div class="col"><span #changeOuput></span></div>
+    </div>
+
+
+</div>

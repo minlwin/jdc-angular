@@ -1,0 +1,42 @@
+<div class="container pt-5">
+  <h3>Binding Demo</h3>
+
+  <!-- Navigation -->
+  <ul class="nav nav-tabs mt-4">
+
+    <li class="nav-item">
+      <a [routerLink]="['/inter']" routerLinkActive="active" class="nav-link">
+        Text Interpolations
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a [routerLink]="['/props']" routerLinkActive="active" class="nav-link">Properties Binding</a>
+    </li>
+
+    <li class="nav-item">
+      <a [routerLink]="['/attr']" routerLinkActive="active" class="nav-link">Attributes Binding</a>
+    </li>
+
+    <li class="nav-item">
+      <a [routerLink]="['/classes']" routerLinkActive="active" class="nav-link">Class Binding</a>
+    </li>
+
+    <li class="nav-item">
+      <a [routerLink]="['/styles']" routerLinkActive="active" class="nav-link">Style Binding</a>
+    </li>
+
+    <li class="nav-item">
+      <a [routerLink]="['/events']" routerLinkActive="active" class="nav-link">Events Binding</a>
+    </li>
+
+    <li class="nav-item">
+      <a [routerLink]="['/twoway']" routerLinkActive="active" class="nav-link">Two Ways Binding</a>
+    </li>
+  </ul>
+
+  <!-- Contents -->
+  <div class="p-4">
+    <router-outlet></router-outlet>
+  </div>
+</div>

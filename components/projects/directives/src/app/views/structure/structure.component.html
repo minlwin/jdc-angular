@@ -1,0 +1,51 @@
+<div class="card">
+    <div class="card-header">Formal</div>
+    <div class="card-body">
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Index</th>
+                    <th>Key</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <ng-template appFor [appForIn]="student" let-key let-value='v' let-index='i'>
+                    <tr>
+                        <td>{{index}}</td>
+                        <td>{{key}}</td>
+                        <td>{{value}}</td>
+                    </tr>
+                </ng-template>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+<div class="card mt-4">
+    <div class="card-header">Short Hand</div>
+    <div class="card-body">
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Index</th>
+                    <th>Key</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *appFor="let key in student; i as index; v as value">
+                    <td>{{index}}</td>
+                    <td>{{key}}</td>
+                    <td>{{value}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>

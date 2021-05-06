@@ -1,0 +1,55 @@
+<app-card title="NgSwitch Formal">
+
+    <div class="row">
+
+        <div class="col-4">
+            <button (click)="formal = '1'" class="btn btn-primary mr-2">Primary</button>
+            <button (click)="formal = '2'" class="btn btn-success mr-2">Success</button>
+            <button (click)="formal = '3'" class="btn btn-danger">Danger</button>
+        </div>
+
+        <div class="col">
+
+            <ng-container [ngSwitch]="formal">
+
+                <ng-template [ngSwitchCase]="1">
+                    <div class="bg-primary text-white p-4">Case 1</div>
+                </ng-template>
+                <ng-template [ngSwitchCase]="2">
+                    <div class="bg-success text-white p-4">Case 2</div>
+                </ng-template>
+                <ng-template [ngSwitchCase]="3">
+                    <div class="bg-danger text-white p-4">Case 3</div>
+                </ng-template>
+                <ng-template [ngSwitchDefault]>
+                    <div class="bg-info text-white p-4">Default</div>
+                </ng-template>
+
+            </ng-container>
+
+        </div>
+    </div>
+</app-card>
+
+<app-card title="NgSwitch Short Habd" [marginTop]="true">
+
+    <div class="row">
+
+        <div class="col-4">
+            <button (click)="shortHand = '1'" class="btn btn-primary mr-2">Primary</button>
+            <button (click)="shortHand = '2'" class="btn btn-success mr-2">Success</button>
+            <button (click)="shortHand = '3'" class="btn btn-danger">Danger</button>
+        </div>
+
+        <div class="col">
+
+            <ng-container [ngSwitch]="shortHand">
+                <div *ngSwitchCase="1" class="bg-primary text-white p-4">Case 1</div>
+                <div *ngSwitchCase="2" class="bg-success text-white p-4">Case 2</div>
+                <div *ngSwitchCase="3" class="bg-danger text-white p-4">Case 3</div>
+                <div *ngSwitchDefault class="bg-info text-white p-4">Default</div>
+            </ng-container>
+
+        </div>
+    </div>
+</app-card>

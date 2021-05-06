@@ -1,0 +1,18 @@
+#target, #multi {
+    height: 200px;
+    background-color: aquamarine;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bordered {
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+}
+
+.shadow {
+    box-shadow: 3px 3px grey;
+}
+

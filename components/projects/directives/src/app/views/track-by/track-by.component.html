@@ -1,0 +1,20 @@
+<div>
+    <button (click)="sameObjects()" class="btn btn-primary mr-2">Same Objects</button>
+    <button (click)="otherObjects()" class="btn btn-danger">Other Objects</button>
+</div>
+
+<table class="table table-striped mt-4">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let item of list trackBy checkData">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,49 @@
+<h3>Two Ways Data Binding</h3>
+
+<div class="card">
+    <div class="card-header">Without Two Ways Binding</div>
+
+    <div class="card-body row">
+
+        <div class="col">
+            <div class="form-group">
+                <label>Parent Input</label>
+                <input #input type="text" (keyup)="message = input.value" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label>Message</label>
+                <span class="form-control">{{message}}</span>
+            </div>
+        </div>
+
+        <div class="col">
+            <app-my-input [value]="message" (valueChange)="message = $event"></app-my-input>
+        </div>
+
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">With Two Ways Binding</div>
+
+    <div class="card-body row">
+
+        <div class="col">
+            <div class="form-group">
+                <label>Parent Input</label>
+                <input #input2 type="text" (keyup)="message = input2.value" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label>Message</label>
+                <span class="form-control">{{message}}</span>
+            </div>
+        </div>
+
+        <div class="col">
+            <app-my-input [(value)]="message"></app-my-input>
+        </div>
+
+    </div>
+</div>

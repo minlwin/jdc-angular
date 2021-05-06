@@ -1,0 +1,63 @@
+<!-- Ng If Normal -->
+<app-card title="Normal NgIf">
+
+    <div class="d-flex">
+
+        <ng-template [ngIf]="normalShow">
+            <h3>Hello Ng If</h3>
+        </ng-template>
+
+        <button (click)="normalShow = !normalShow" class="ml-auto btn btn-primary">
+            {{normalShow ? 'Hide': 'Show'}}
+        </button>
+    </div>
+</app-card>
+
+<app-card title="Short Hand Form NgIf" [marginTop]="true">
+
+    <div class="d-flex">
+
+        <h3 *ngIf="shortHandShow">Hello Short Hand NgIf</h3>
+
+        <button (click)="shortHandShow = !shortHandShow" class="ml-auto btn btn-primary">
+            {{shortHandShow ? 'Hide' : 'Show'}}
+        </button>
+    </div>
+
+</app-card>
+
+<app-card title="NgIfElse Normal" [marginTop]="true">
+
+    <div class="d-flex">
+
+        <ng-template [ngIf]="normal" [ngIfElse]="elseContent">
+            <h3>Hello This is True!</h3>
+        </ng-template>
+
+        <ng-template #elseContent>
+            <h3>This is not True!</h3>
+        </ng-template>
+
+        <button (click)="normal = !normal" class="ml-auto btn btn-primary">
+            {{normal ? 'Hide' : 'Show'}}
+        </button>
+
+    </div>
+</app-card>
+
+<app-card title="NgIfElse Short Hand" [marginTop]="true">
+
+    <div class="d-flex">
+
+        <h3 *ngIf="shortHabd else elseContent">Hello This is True!</h3>
+
+        <ng-template #elseContent>
+            <h3>This is not True!</h3>
+        </ng-template>
+
+        <button (click)="shortHabd = !shortHabd" class="ml-auto btn btn-primary">
+            {{normal ? 'Hide' : 'Show'}}
+        </button>
+
+    </div>
+</app-card>

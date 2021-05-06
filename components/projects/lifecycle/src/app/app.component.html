@@ -1,0 +1,19 @@
+<div class="container pt-4">
+  <h1>Component Lifecycle</h1>
+
+  <div class="row mt-4">
+    <div class="col-3">
+      <div class="list-group">
+        <span class="list-group-item" [routerLink]="['/changes']" routerLinkActive="active">Changes</span>
+        <span class="list-group-item" [routerLink]="['/content']" routerLinkActive="active">Using Content</span>
+        <span class="list-group-item" [routerLink]="['/children']" routerLinkActive="active">Children's Lifecycle</span>
+      </div>
+    </div>
+
+    <div class="col">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+
+</div>
