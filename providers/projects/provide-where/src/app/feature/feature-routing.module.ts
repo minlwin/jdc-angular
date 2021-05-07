@@ -5,6 +5,7 @@ import { FeatureComponent } from './feature.component';
 import { RootPageComponent } from './root-page/root-page.component';
 
 const routes: Routes = [
+  { path: 'other', component: RootPageComponent },
   { path: 'root', component: RootPageComponent },
   { path: 'page', component: FeaturePageComponent },
   { path: '', component: FeatureComponent },

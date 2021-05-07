@@ -26,3 +26,15 @@ export class ComponentService extends AbstractRepo {
         super('Component')
     }
 }
+
+export class FeatureService extends AbstractRepo {
+    constructor() {
+        super('Feature')
+    }
+}
+
+export class RootService extends AbstractRepo {
+    constructor() {
+        super('Root')
+    }
+}

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Message } from 'projects/hello/src/app/resources/message.resources';
+import { FeatureService } from '../services/my-searvice';
 
 @Component({
   selector: 'app-feature',
@@ -6,11 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styles: [
   ]
 })
-export class FeatureComponent implements OnInit {
+export class FeatureComponent {
 
-  constructor() { }
+  constructor(private service: FeatureService) { }
 
-  ngOnInit(): void {
+  addMessage(m: string) {
+    this.service.add(m)
   }
 
+  get messages(): Message[] {
+    return this.service.getAll()
+  }
 }

@@ -1,1 +1,5 @@
-<p>root-page works!</p>
+<app-input title="Root Input" (onAddListener)="addMessage($event)"></app-input>
+
+<div class="mt-4">
+    <app-list title="Using Root Service" [list]="list"></app-list>
+</div>

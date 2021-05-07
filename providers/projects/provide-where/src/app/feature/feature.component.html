@@ -1,1 +1,7 @@
-<p>feature works!</p>
+<app-input title="Feature Input" (onAddListener)="addMessage($event)"></app-input>
+
+<div class="mt-4">
+    <app-list title="Feature List" [list]="messages"></app-list>
+
+    <button [routerLink]="['page']" class="btn btn-gray mt-4">Go TO Other Page</button>
+</div>

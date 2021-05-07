@@ -1,17 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { RootService } from '../services/my-searvice';
 
 @Component({
   templateUrl: './both-page.component.html',
-  styles: [
+  providers: [
+    RootService
   ]
 })
-export class BothPageComponent implements OnInit {
+export class BothPageComponent {
 
+  list: any
 
-  constructor() {
+  constructor(service: RootService) {
+    this.list = service.getAll()
   }
-
-  ngOnInit(): void {
-  }
-
 }

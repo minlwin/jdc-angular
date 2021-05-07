@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppPageComponent } from './app-page/app-page.component';
+import { PageChildComponent } from './app-page/page-child/page-child.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { WidgetsModule } from './widgets/widgets.module';
 import { BothPageComponent } from './both-page/both-page.component';
-import { PageChildComponent } from './app-page/page-child/page-child.component';
+import { RootService } from './services/my-searvice';
+import { WidgetsModule } from './widgets/widgets.module';
 
 
 @NgModule({
@@ -20,7 +21,9 @@ import { PageChildComponent } from './app-page/page-child/page-child.component';
     AppRoutingModule,
     WidgetsModule
   ],
-  providers: [],
+  providers: [
+    RootService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
