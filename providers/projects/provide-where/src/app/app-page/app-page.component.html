@@ -1,1 +1,8 @@
-<p>app-page works!</p>
+<app-input (onAddListener)="addMessage($event)" title="App Page Input"></app-input>
+
+<div class="mt-4 grid grid-cols-2 gap-4">
+    <app-list [list]="list" title="App Page List"></app-list>
+
+    <!-- Child Component -->
+    <app-page-child></app-page-child>
+</div>

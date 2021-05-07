@@ -1,16 +1,25 @@
+<!-- Nav Wrappper -->
 <div class="shadow bg-gray-200">
   <div class="container mx-auto">
 
+    <!-- Nav Bar -->
     <nav>
+      <!-- Page Title -->
       <h1>Where you provide</h1>
 
+      <!-- Menu -->
       <div class="menu">
-        <a>Component</a>
-        <a>Feature Module</a>
-        <a>Root Module</a>
-        <a>Both Module & Compoent</a>
+        <a [routerLink]="['/app-page']" routerLinkActive="active">Component</a>
+        <a [routerLink]="['/feature']" routerLinkActive="active">Feature Module</a>
+        <a [routerLink]="['/feature/root']" routerLinkActive="active">Root Module</a>
+        <a [routerLink]="['/both']" routerLinkActive="active">Both Module & Compoent</a>
       </div>
     </nav>
 
   </div>
+</div>
+
+<!-- Content Wrapper -->
+<div class="container mx-auto mt-6">
+  <router-outlet></router-outlet>
 </div>

@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Message } from 'projects/hello/src/app/resources/message.resources';
+import { ComponentService } from '../services/my-searvice';
 
 @Component({
   templateUrl: './app-page.component.html',
-  styles: [
+  providers: [
+    ComponentService
   ]
 })
-export class AppPageComponent implements OnInit {
+export class AppPageComponent {
 
-  constructor() { }
+  constructor(private service: ComponentService) { }
 
-  ngOnInit(): void {
+  addMessage(message: string) {
+    this.service.add(message)
+  }
+
+  get list(): Message[] {
+    return this.service.getAll()
   }
 
 }

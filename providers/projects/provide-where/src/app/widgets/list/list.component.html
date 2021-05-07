@@ -1,0 +1,12 @@
+<div class="card">
+    <div class="header">{{title}}</div>
+
+    <div class="body">
+        <div class="list">
+            <div *ngFor="let item of list" class="item">
+                <p class="main">{{item.message}}</p>
+                <span class="dim">{{item.date | date : 'yyyy-MM-dd HH:mm:ss'}}</span>
+            </div>
+        </div>
+    </div>
+</div>
