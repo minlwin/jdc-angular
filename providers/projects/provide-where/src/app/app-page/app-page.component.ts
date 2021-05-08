@@ -1,16 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, Inject, InjectionToken } from '@angular/core';
 import { Message } from 'projects/hello/src/app/resources/message.resources';
-import { ComponentService } from '../services/my-searvice';
+import { AbstractRepo, ComponentService } from '../services/my-searvice';
+
+export const TOKEN = new InjectionToken("componentService")
 
 @Component({
   templateUrl: './app-page.component.html',
   providers: [
-    ComponentService
+    ComponentService,
+    { provide: TOKEN, useClass: ComponentService }
   ]
 })
 export class AppPageComponent {
 
-  constructor(private service: ComponentService) { }
+  constructor(@Inject(TOKEN) private service: AbstractRepo) { }
 
   addMessage(message: string) {
     this.service.add(message)
