@@ -7,7 +7,7 @@
 
 @layer components {
     .card {
-        @apply p-6 shadow rounded-lg border-solid border-2 border-gray-400
+        @apply p-6 shadow rounded-lg border border-gray-400 hover:border-transparent hover:shadow-lg
     }
 
     .card > .header {
@@ -19,7 +19,7 @@
     }
 
     .input {
-        @apply block my-2 min-w-full py-2 px-4 bg-gray-100 rounded border-b-2 border-gray-500 focus:outline-none
+        @apply block my-2 min-w-full py-2 px-4 bg-gray-100 rounded border-b border-gray-500 focus:outline-none
     }
 
     .btn {
