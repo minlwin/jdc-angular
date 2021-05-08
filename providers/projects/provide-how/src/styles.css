@@ -1,0 +1,66 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .navbar {
+        @apply border-b border-red-100 bg-red-700 text-red-100 hover:shadow-lg
+    }
+
+    .navbar h1 {
+        @apply text-2xl font-bold
+    }
+
+    .navbar nav {
+        @apply container mx-auto flex items-center justify-between
+    }
+
+    .navbar .menu {
+        @apply flex
+    }
+
+    .navbar .menu a {
+        @apply block p-4 hover:bg-red-500
+    }
+
+    .navbar .menu a.active {
+        @apply text-yellow-300
+    }
+
+    .navbar .dropdown {
+        @apply relative
+    }
+
+    .navbar .dropdown .dropdown-menu {
+        @apply absolute invisible w-48 bg-red-500
+    }
+
+    .navbar .dropdown .dropdown-menu a {
+        @apply py-2 px-4 hover:bg-red-700
+    }
+
+    .navbar .dropdown:hover .dropdown-menu {
+        @apply visible shadow-lg
+    }
+
+    .navbar .dropdown:hover a {
+        @apply bg-red-500
+    }
+
+    .main-content  {
+        @apply pt-4 container mx-auto
+    }
+
+    .main-content h1 {
+        @apply text-2xl capitalize text-red-500
+    }
+
+    .card {
+        @apply border rounded py-4 px-6 my-4 hover:shadow-lg
+    }
+
+    .card h1 {
+        @apply text-xl text-red-400 mb-4
+    }
+
+}

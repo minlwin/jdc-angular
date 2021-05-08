@@ -1,0 +1,21 @@
+<div class="navbar">
+  <nav>
+    <h1>How Provide</h1>
+
+    <div class="menu">
+      <a>Dependencies</a>
+      <div class="dropdown">
+        <a>Provider Types</a>
+        <div class="dropdown-menu">
+          <a [routerLink]="['/types/alias']" routerLinkActive="active">Alias</a>
+          <a [routerLink]="['/types/factory']" routerLinkActive="active">Factory</a>
+          <a [routerLink]="['/types/multi']" routerLinkActive="active">Multi Providers</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div class="main-content">
+  <router-outlet></router-outlet>
+</div>

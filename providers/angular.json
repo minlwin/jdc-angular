@@ -289,6 +289,148 @@
           }
         }
       }
+    },
+    "provide-how": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "inlineStyle": true,
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "root": "projects/provide-how",
+      "sourceRoot": "projects/provide-how/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/provide-how",
+            "index": "projects/provide-how/src/index.html",
+            "main": "projects/provide-how/src/main.ts",
+            "polyfills": "projects/provide-how/src/polyfills.ts",
+            "tsConfig": "projects/provide-how/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/provide-how/src/favicon.ico",
+              "projects/provide-how/src/assets"
+            ],
+            "styles": [
+              "projects/provide-how/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/provide-how/src/environments/environment.ts",
+                  "with": "projects/provide-how/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "provide-how:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "provide-how:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "provide-how:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/provide-how/src/test.ts",
+            "polyfills": "projects/provide-how/src/polyfills.ts",
+            "tsConfig": "projects/provide-how/tsconfig.spec.json",
+            "karmaConfig": "projects/provide-how/karma.conf.js",
+            "assets": [
+              "projects/provide-how/src/favicon.ico",
+              "projects/provide-how/src/assets"
+            ],
+            "styles": [
+              "projects/provide-how/src/styles.css"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/provide-how/tsconfig.app.json",
+              "projects/provide-how/tsconfig.spec.json",
+              "projects/provide-how/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/provide-how/e2e/protractor.conf.js",
+            "devServerTarget": "provide-how:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "provide-how:serve:production"
+            }
+          }
+        }
+      }
     }
   },
   "defaultProject": "hello"
