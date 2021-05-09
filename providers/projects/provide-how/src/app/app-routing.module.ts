@@ -1,11 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DependenciesComponent } from './dependencies/dependencies.component';
-import { ProviderTypesModule } from './provider-types/provider-types.module';
+import { AliasComponent } from './types/alias/alias.component';
+import { FactoryComponent } from './types/factory/factory.component';
+import { MultiComponent } from './types/multi/multi.component';
 
 const routes: Routes = [
   { path: 'deps', component: DependenciesComponent },
-  { path: 'types', loadChildren: () => ProviderTypesModule },
+  {
+    path: 'types', children: [
+      { path: 'factory', component: FactoryComponent },
+      { path: 'alias', component: AliasComponent },
+      { path: 'multi', component: MultiComponent },
+      { path: '', redirectTo: '/types/factory', pathMatch: 'full' }
+    ]
+  },
   { path: '', redirectTo: '/deps', pathMatch: 'full' }
 ];
 

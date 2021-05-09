@@ -4,12 +4,13 @@
 
     <div class="menu">
       <a [routerLink]="['/deps']" routerLinkActive="active">Dependencies</a>
+
       <div class="dropdown">
         <a>Provider Types</a>
         <div class="dropdown-menu">
-          <a [routerLink]="['/types/alias']" routerLinkActive="active">Alias</a>
           <a [routerLink]="['/types/factory']" routerLinkActive="active">Factory</a>
-          <a [routerLink]="['/types/multi']" routerLinkActive="active">Multi Providers</a>
+          <a [routerLink]="['/types/alias']" routerLinkActive="active">Use Existing</a>
+          <a [routerLink]="['/types/multi']" routerLinkActive="acitve">Multi Provider</a>
         </div>
       </div>
     </div>

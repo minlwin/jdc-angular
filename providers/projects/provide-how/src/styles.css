@@ -52,7 +52,11 @@
     }
 
     .main-content h1 {
-        @apply text-2xl capitalize text-red-500
+        @apply text-2xl text-red-500
+    }
+
+    .main-content h2 {
+        @apply text-lg text-red-300 mb-2
     }
 
     .card {
@@ -63,4 +67,39 @@
         @apply text-xl text-red-400 mb-4
     }
 
+    .list-group {
+        @apply mt-4
+    }
+
+    .list-group h1 {
+        @apply text-lg
+    }
+
+    .list-group .item {
+        @apply py-2 border-b border-red-300
+    }
+
+}
+
+@layer base {
+
+    input, select, button {
+        @apply px-4 py-2 mr-4 border-b border-red-500 rounded
+    }
+
+    input, select {
+        @apply bg-red-100 outline-none focus:outline-none
+    }
+
+    select {
+        @apply appearance-none leading-normal
+    }
+
+    input {
+        @apply w-3/5
+    }
+
+    button {
+        @apply bg-red-100 hover:shadow-lg hover:bg-red-800 hover:text-white
+    }
 }
