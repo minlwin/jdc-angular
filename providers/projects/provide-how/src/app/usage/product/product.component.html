@@ -1,0 +1,18 @@
+<div>
+    <select #select>
+        <option value="">Select Category</option>
+        <option *ngFor="let item of categories" [value]="item.id">{{item.name}}</option>
+    </select>
+
+    <input #input type="text" placeholder="Enter Product Name">
+
+    <button (click)="addNew(select, input)">Add New</button>
+</div>
+
+<!-- Product List -->
+<div class="list-group">
+    <div *ngFor="let item of list" class="item flex">
+        <h1 class="w-1/4">{{item.category.name}}</h1>
+        <h1>{{item.name}}</h1>
+    </div>
+</div>

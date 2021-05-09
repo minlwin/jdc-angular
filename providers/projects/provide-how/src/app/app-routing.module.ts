@@ -4,6 +4,7 @@ import { DependenciesComponent } from './dependencies/dependencies.component';
 import { AliasComponent } from './types/alias/alias.component';
 import { FactoryComponent } from './types/factory/factory.component';
 import { MultiComponent } from './types/multi/multi.component';
+import { UsageComponent } from './usage/usage.component';
 
 const routes: Routes = [
   { path: 'deps', component: DependenciesComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
       { path: '', redirectTo: '/types/factory', pathMatch: 'full' }
     ]
   },
+  { path: 'usage', component: UsageComponent },
   { path: '', redirectTo: '/deps', pathMatch: 'full' }
 ];
 

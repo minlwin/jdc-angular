@@ -7,6 +7,11 @@ import { AliasComponent } from './types/alias/alias.component';
 import * as Demo from './types/factory/demo';
 import { FactoryComponent } from './types/factory/factory.component';
 import { MultiComponent } from './types/multi/multi.component';
+import { CategoryComponent } from './usage/category/category.component';
+import { ID_GEN, ID_GENERATOR } from './usage/model/id-gen';
+import { CATEGORY_REPO, CATEGORY_TYPE, PRODUCT_REPO, PRODUCT_TYPE, REPO_FACTORY } from './usage/model/repository';
+import { ProductComponent } from './usage/product/product.component';
+import { UsageComponent } from './usage/usage.component';
 
 @NgModule({
   declarations: [
@@ -14,14 +19,22 @@ import { MultiComponent } from './types/multi/multi.component';
     DependenciesComponent,
     FactoryComponent,
     AliasComponent,
-    MultiComponent
+    MultiComponent,
+    UsageComponent,
+    CategoryComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
   ],
   providers: [
-    { provide: 'message', useFactory: Demo.messageFactory }
+    { provide: 'message', useFactory: Demo.messageFactory },
+    { provide: ID_GEN, useFactory: ID_GENERATOR },
+    { provide: CATEGORY_TYPE, useValue: 'Category' },
+    { provide: PRODUCT_TYPE, useValue: 'Product' },
+    { provide: CATEGORY_REPO, useFactory: REPO_FACTORY, deps: [CATEGORY_TYPE, ID_GEN] },
+    { provide: PRODUCT_REPO, useFactory: REPO_FACTORY, deps: [PRODUCT_TYPE, ID_GEN] },
   ],
   bootstrap: [AppComponent]
 })

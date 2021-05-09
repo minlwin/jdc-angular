@@ -1,0 +1,12 @@
+<div>
+    <input #input type="text" placeholder="Enter Category">
+    <button (click)="addNew(input)">Add New</button>
+</div>
+
+<div class="list-group">
+
+    <div *ngFor="let item of list" class="item">
+        <h1>{{item.name}}</h1>
+    </div>
+
+</div>
