@@ -1,0 +1,106 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@layer components {
+
+    .navbar {
+        @apply bg-primary text-blue-200 hover:shadow-lg 
+    }
+
+    .navbar nav {
+        @apply container mx-auto flex items-center justify-between
+    }
+
+    .navbar nav .menu {
+        @apply flex
+    }
+
+    .navbar nav h1 {
+        @apply text-2xl font-bold text-primary-lignt align-middle
+    }
+
+
+    .navbar nav a {
+        @apply block px-4 py-4 hover:bg-primary-dark
+    }
+
+    .navbar nav a.active {
+        @apply text-white
+    }
+
+    .navbar .dropdown {
+        @apply relative
+    }
+
+    .navbar .dropdown .dropdown-menu {
+        @apply absolute invisible w-40 bg-primary-dark
+    }
+
+    .navbar .dropdown .dropdown-menu a {
+        @apply hover:bg-primary
+    }
+
+    .navbar .dropdown:hover a {
+        @apply bg-primary-dark
+    }
+
+    .navbar .dropdown:hover .dropdown-menu {
+        @apply visible shadow-lg
+    }
+
+    .content {
+        @apply py-6 container mx-auto
+    }
+
+    .content > * > h1 {
+        @apply text-2xl font-bold text-primary pb-1 mb-4
+    }
+
+    .form div.form-group {
+        @apply mb-4
+    }
+
+    .form input, .form select, .form textarea {
+        @apply block mt-1 w-full rounded border-secondary
+    }
+
+    .form-inline div.form-group {
+        @apply mr-4
+    }
+
+    .form-inline input , .form-inline select, .form-inline textarea{
+        @apply ml-2 rounded border-secondary
+    }
+
+    .form label, form-inline label {
+        @apply text-primary
+    }
+
+    button {
+        @apply border rounded px-4 py-2 border-secondary hover:bg-primary hover:text-primary-lignt hover:shadow-lg
+    }
+
+    .section {
+        @apply my-6
+    }
+
+    .section > h1 {
+        @apply text-lg text-primary mb-4 pb-1 border-b
+    }
+
+    .card {
+        @apply border border-secondary rounded p-4 hover:border-transparent hover:shadow-lg
+    }
+
+    .card h1 {
+        @apply text-lg text-primary 
+    }
+
+    .card .body {
+        @apply mt-4 mb-2
+    }
+
+}

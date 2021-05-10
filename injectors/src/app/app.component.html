@@ -1,0 +1,34 @@
+<div class="navbar ">
+
+  <nav>
+    <h1>Injectable</h1>
+
+    <div class="menu">
+      <a [routerLink]="['/hello']" routerLinkActive="active">Hello Injectable</a>
+
+      <div class="dropdown">
+        <a [routerLink]="['/eager']" routerLinkActive="active">Eager</a>
+        <div class="dropdown-menu">
+          <a [routerLink]="['/eager/list']" routerLinkActive="active">Messages</a>
+          <a [routerLink]="['/eager/input']" routerLinkActive="active">Message Input</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a [routerLink]="['/lazy']" routerLinkActive="active">Lazy</a>
+        <div class="dropdown-menu">
+          <a [routerLink]="['/lazy/list']" routerLinkActive="active">Messages</a>
+          <a [routerLink]="['/lazy/input']" routerLinkActive="active">Message Input</a>
+        </div>
+      </div>
+
+    </div>
+
+  </nav>
+
+</div>
+
+<div class="content">
+
+  <router-outlet></router-outlet>
+</div>
