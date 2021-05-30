@@ -1,0 +1,68 @@
+<div class="container mx-auto pt-8">
+
+  <h1 class="text-3xl font-bold uppercase text-red-700">Template From</h1>
+
+  <div class="grid grid-cols-2 gap-4 mt-4">
+
+    <div class="border border-blue-400 rounded p-4">
+      <h2 class="uppercase text-lg">Form</h2>
+
+      <form #myForm="ngForm">
+
+        <div class="mt-4">
+          <label>Name</label>
+          <input required maxLength="10" #nameInput="ngModel" ngModel name="name" type="text" placeholder="Enter Name"
+            class="block mt-1 rounded w-full border-blue-500">
+        </div>
+
+        <fieldset ngModelGroup="contact">
+          <div class="mt-4">
+            <label>Phone</label>
+            <input pattern="^09\d(-\d{4}){2}" #phoneInput="ngModel" ngModel name="phone" type="tel"
+              placeholder="Enter Name" class="block mt-1 rounded w-full border-blue-500">
+          </div>
+          <div class="mt-4">
+            <label>Email</label>
+            <input #emailInput="ngModel" required email ngModel name="email" type="email" placeholder="Enter Name"
+              class="block mt-1 rounded w-full border-blue-500">
+          </div>
+
+        </fieldset>
+
+      </form>
+    </div>
+
+    <div>
+      <div class="border border-blue-400 rounded p-4">
+        <h2 class="uppercase text-lg">Value</h2>
+
+        <pre>{{myForm.value | json}}</pre>
+      </div>
+
+      <div class="border border-blue-400 rounded p-4 mt-4">
+        <h2 class="uppercase text-lg">Status</h2>
+
+        <table>
+          <tr>
+            <td>Form</td>
+            <td>{{myForm.status}}</td>
+          </tr>
+          <tr>
+            <td>Name Input</td>
+            <td>{{nameInput.status}}</td>
+          </tr>
+          <tr>
+            <td>Phone Input</td>
+            <td>{{phoneInput.status}}</td>
+          </tr>
+          <tr>
+            <td>Email Input</td>
+            <td>{{emailInput.status}}</td>
+          </tr>
+        </table>
+      </div>
+
+    </div>
+
+  </div>
+</div>
