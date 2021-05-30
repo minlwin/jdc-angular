@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Optional } from '@angular/core';
 import { MessageService } from '../services/messages';
 
 @Component({
@@ -10,8 +10,7 @@ export class HelloComponent {
 
   list: any[] = []
 
-  constructor(private service: MessageService) {
-  }
+  constructor(@Optional() private service: MessageService) { }
 
   add(input: any) {
     this.service.add(input.value)

@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Counter } from "./counter";
 
-@Injectable()
+@Injectable({ providedIn: 'any' })
 export class MessageService {
 
     private list: any[] = []
