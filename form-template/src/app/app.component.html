@@ -11,23 +11,40 @@
 
         <div class="mt-4">
           <label>Name</label>
-          <input required maxLength="10" #nameInput="ngModel" ngModel name="name" type="text" placeholder="Enter Name"
-            class="block mt-1 rounded w-full border-blue-500">
+          <input required [forbit-names]="badGuys" maxLength="10" #nameInput="ngModel" ngModel name="name" type="text"
+            placeholder="Enter Name" class="block mt-1 rounded w-full border-blue-500">
+          <div class="text-red-400" *ngIf="nameInput.invalid && (nameInput.touched || nameInput.dirty)">
+            <span *ngIf="nameInput.errors?.forbitten">{{nameInput.errors?.forbitten}}</span>
+            <span *ngIf="nameInput.errors?.required">Please enter user name.</span>
+          </div>
         </div>
 
         <fieldset ngModelGroup="contact">
           <div class="mt-4">
             <label>Phone</label>
-            <input pattern="^09\d(-\d{4}){2}" #phoneInput="ngModel" ngModel name="phone" type="tel"
+            <input required pattern="^09\d(-\d{4}){2}" #phoneInput="ngModel" ngModel name="phone" type="tel"
               placeholder="Enter Name" class="block mt-1 rounded w-full border-blue-500">
+            <div class="text-red-400" *ngIf="phoneInput.invalid && (phoneInput.touched || phoneInput.dirty)">
+              <span *ngIf="phoneInput.errors?.pattern">Please enter valid phone number.</span>
+              <span *ngIf="phoneInput.errors?.required">Please enter phone number.</span>
+            </div>
           </div>
           <div class="mt-4">
             <label>Email</label>
             <input #emailInput="ngModel" required email ngModel name="email" type="email" placeholder="Enter Name"
               class="block mt-1 rounded w-full border-blue-500">
+            <div class="text-red-400" *ngIf="emailInput.invalid && (emailInput.touched || emailInput.dirty)">
+              <span *ngIf="emailInput.errors?.email">Please enter valid email address.</span>
+              <span *ngIf="emailInput.errors?.required">Please enter email address.</span>
+            </div>
           </div>
 
         </fieldset>
+
+        <div class="mt-4">
+          <button type="reset" class="mr-2">Clear</button>
+          <button [disabled]="myForm.invalid">Save</button>
+        </div>
 
       </form>
     </div>
