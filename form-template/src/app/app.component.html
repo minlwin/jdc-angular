@@ -2,84 +2,91 @@
 
   <h1 class="text-3xl font-bold uppercase text-red-700">Template From</h1>
 
-  <div class="grid grid-cols-2 gap-4 mt-4">
-
-    <div class="border border-blue-400 rounded p-4">
-      <h2 class="uppercase text-lg">Form</h2>
-
-      <form #myForm="ngForm">
-
-        <div class="mt-4">
-          <label>Name</label>
-          <input required [forbit-names]="badGuys" maxLength="10" #nameInput="ngModel" ngModel name="name" type="text"
-            placeholder="Enter Name" class="block mt-1 rounded w-full border-blue-500">
-          <div class="text-red-400" *ngIf="nameInput.invalid && (nameInput.touched || nameInput.dirty)">
-            <span *ngIf="nameInput.errors?.forbitten">{{nameInput.errors?.forbitten}}</span>
-            <span *ngIf="nameInput.errors?.required">Please enter user name.</span>
-          </div>
-        </div>
-
-        <fieldset ngModelGroup="contact">
-          <div class="mt-4">
-            <label>Phone</label>
-            <input required pattern="^09\d(-\d{4}){2}" #phoneInput="ngModel" ngModel name="phone" type="tel"
-              placeholder="Enter Name" class="block mt-1 rounded w-full border-blue-500">
-            <div class="text-red-400" *ngIf="phoneInput.invalid && (phoneInput.touched || phoneInput.dirty)">
-              <span *ngIf="phoneInput.errors?.pattern">Please enter valid phone number.</span>
-              <span *ngIf="phoneInput.errors?.required">Please enter phone number.</span>
-            </div>
-          </div>
-          <div class="mt-4">
-            <label>Email</label>
-            <input #emailInput="ngModel" required email ngModel name="email" type="email" placeholder="Enter Name"
-              class="block mt-1 rounded w-full border-blue-500">
-            <div class="text-red-400" *ngIf="emailInput.invalid && (emailInput.touched || emailInput.dirty)">
-              <span *ngIf="emailInput.errors?.email">Please enter valid email address.</span>
-              <span *ngIf="emailInput.errors?.required">Please enter email address.</span>
-            </div>
-          </div>
-
-        </fieldset>
-
-        <div class="mt-4">
-          <button type="reset" class="mr-2">Clear</button>
-          <button [disabled]="myForm.invalid">Save</button>
-        </div>
-
-      </form>
-    </div>
-
-    <div>
-      <div class="border border-blue-400 rounded p-4">
-        <h2 class="uppercase text-lg">Value</h2>
-
-        <pre>{{myForm.value | json}}</pre>
-      </div>
-
-      <div class="border border-blue-400 rounded p-4 mt-4">
-        <h2 class="uppercase text-lg">Status</h2>
-
-        <table>
-          <tr>
-            <td>Form</td>
-            <td>{{myForm.status}}</td>
-          </tr>
-          <tr>
-            <td>Name Input</td>
-            <td>{{nameInput.status}}</td>
-          </tr>
-          <tr>
-            <td>Phone Input</td>
-            <td>{{phoneInput.status}}</td>
-          </tr>
-          <tr>
-            <td>Email Input</td>
-            <td>{{emailInput.status}}</td>
-          </tr>
-        </table>
-      </div>
-
-    </div>
-
+  <div class="my-4">
+    <button (click)="addNew()">Add New</button>
   </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="text-left">Id</th>
+        <th class="text-left">Name</th>
+        <th class="text-left">Course</th>
+        <th class="text-left">Phone</th>
+        <th class="text-left">Email</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let item of list; index as i; odd as o" [class.odd]="o">
+        <td>{{i + 1}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.course}}</td>
+        <td>{{item.contact.phone}}</td>
+        <td>{{item.contact.email}}</td>
+        <td>
+          <span (click)="edit(item, i)">
+            <icon-edit></icon-edit>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>
+
+<modal-dialog title="Edit Student">
+
+  <form style="width: 600px;" #myForm="ngForm" (ngSubmit)="save()">
+
+    <div class="mt-4">
+      <label>Name</label>
+      <input required [forbit-names]="badGuys" maxLength="10" #nameInput="ngModel" [(ngModel)]="model.name" name="name"
+        type="text" placeholder="Enter Name" class="block mt-1 rounded w-full border-blue-500">
+      <div class="text-red-400" *ngIf="nameInput.invalid && (nameInput.touched || nameInput.dirty)">
+        <span *ngIf="nameInput.errors?.forbitten">{{nameInput.errors?.forbitten}}</span>
+        <span *ngIf="nameInput.errors?.required">Please enter user name.</span>
+      </div>
+    </div>
+
+    <div class="mt-4">
+      <label>Course</label>
+      <select #courseSelect="ngModel" required class="block mt-1 rounded border-blue-500 w-full"
+        [(ngModel)]="model.course" name="course">
+        <option value="">Select Course</option>
+        <option *ngFor="let item of courses" [value]="item">{{item}}</option>
+      </select>
+      <div *ngIf="courseSelect.invalid && (courseSelect.touched || courseSelect.dirty)">
+        Please select course.
+      </div>
+    </div>
+
+    <fieldset ngModelGroup="contact">
+      <div class="mt-4">
+        <label>Phone</label>
+        <input required pattern="^09\d(-\d{4}){2}" #phoneInput="ngModel" [(ngModel)]="model.contact.phone" name="phone"
+          type="tel" placeholder="Enter Name" class="block mt-1 rounded w-full border-blue-500">
+        <div class="text-red-400" *ngIf="phoneInput.invalid && (phoneInput.touched || phoneInput.dirty)">
+          <span *ngIf="phoneInput.errors?.pattern">Please enter valid phone number.</span>
+          <span *ngIf="phoneInput.errors?.required">Please enter phone number.</span>
+        </div>
+      </div>
+      <div class="mt-4">
+        <label>Email</label>
+        <input #emailInput="ngModel" required email [(ngModel)]="model.contact.email" name="email" type="email"
+          placeholder="Enter Name" class="block mt-1 rounded w-full border-blue-500">
+        <div class="text-red-400" *ngIf="emailInput.invalid && (emailInput.touched || emailInput.dirty)">
+          <span *ngIf="emailInput.errors?.email">Please enter valid email address.</span>
+          <span *ngIf="emailInput.errors?.required">Please enter email address.</span>
+        </div>
+      </div>
+
+    </fieldset>
+
+    <div class="mt-4">
+      <button (click)="close()" class="mr-2">Close</button>
+      <button type="submit" [disabled]="myForm.invalid">Save</button>
+    </div>
+
+  </form>
+</modal-dialog>
