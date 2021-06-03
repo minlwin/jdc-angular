@@ -1,0 +1,68 @@
+<div class="row">
+
+    <div class="col">
+        <div class="card">
+            <div class="card-header">Form </div>
+            <div class="card-body">
+                <form [formGroup]="form">
+
+                    <!-- Name -->
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input formControlName="name" type="text" placeholder="Enter Name" class="form-control mt-1">
+                    </div>
+
+                    <!-- Course -->
+                    <div class="form-group mt-2">
+                        <label>Course</label>
+                        <select formControlName="course" class="form-control mt-1 form-select">
+                            <option value="">Select One</option>
+                            <option *ngFor="let item of courses" [value]="item">{{item}}</option>
+                        </select>
+                    </div>
+
+                    <!-- Date -->
+                    <div class="form-group mt-2">
+                        <label>Date</label>
+                        <input formControlName="date" type="date" placeholder="Enter Date" class="form-control mt-1">
+                    </div>
+
+                    <!-- Contact -->
+                    <fieldset formGroupName="contact">
+                        <!-- Phone -->
+                        <div class="form-group mt-2">
+                            <label>Phone</label>
+                            <input formControlName="phone" type="tel" placeholder="Enter Phone Number"
+                                class="form-control mt-1">
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group mt-2">
+                            <label>Email</label>
+                            <input formControlName="email" type="email" placeholder="Enter Email Address"
+                                class="form-control mt-1">
+                        </div>
+
+                    </fieldset>
+
+                    <!-- Address -->
+                    <div class="form-group mt-2">
+                        <label>Address</label>
+                        <textarea formControlName="address" class="form-control mt-1"
+                            placeholder="Enter Address"></textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col">
+        <div class="card">
+            <div class="card-header">Form Values</div>
+            <div class="card-body">
+                <pre>{{form.value | json}}</pre>
+            </div>
+        </div>
+    </div>
+</div>
