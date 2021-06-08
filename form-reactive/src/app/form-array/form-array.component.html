@@ -1,0 +1,56 @@
+<div class="row">
+
+
+    <div class="col">
+        <div class="card">
+
+            <div class="card-header">
+                Form Array Demo
+            </div>
+
+            <form [formGroup]="form" class="card-body">
+
+                <!-- Titel -->
+                <div>
+                    <label class="form-label">Title</label>
+                    <input formControlName="title" type="text" placeholder="Enter Title" class="form-control">
+                </div>
+
+                <!-- Body -->
+                <div class="mt-3">
+                    <label class="form-label">Blog Body</label>
+                    <textarea formControlName="body" class="form-control" placeholder="Enter Blog Post"></textarea>
+                </div>
+
+                <!-- Tags -->
+                <div class="mt-3">
+                    <label class="form-label">Tags</label>
+                    <div formArrayName="tags" class="row">
+                        <div *ngFor="let item of tags.controls; index as i" class="col-6">
+                            <input [formControlName]="i" type="text" class="form-control mb-2"
+                                placeholder="Enter Tag Name">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-2">
+                    <button (click)="addTag()" class="btn btn-outline-danger">Add Tag</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="card">
+            <div class="card-header">Form Value</div>
+
+            <div class="card-body p-4">
+                <pre>{{form.value | json}}</pre>
+            </div>
+
+        </div>
+
+    </div>
+</div>

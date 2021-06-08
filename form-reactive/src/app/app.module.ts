@@ -5,13 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello/hello.component';
 import { FormGroupComponent } from './form-group/form-group.component';
+import { FormArrayComponent } from './form-array/form-array.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HelloComponent,
-    FormGroupComponent
+    FormGroupComponent,
+    FormArrayComponent
   ],
   imports: [
     BrowserModule,
