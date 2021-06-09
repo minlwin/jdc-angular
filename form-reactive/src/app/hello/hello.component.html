@@ -23,12 +23,21 @@
 
             <div class="col">
 
-                <label>Value</label>
-                <div class="bg-dark text-white px-4 pt-4 pb-2 mt-1 rounded shadow">
-                    <pre>{{message.value}}</pre>
+                <div>
+                    <label>Value</label>
+                    <div class="bg-dark text-white px-4 pt-4 pb-2 mt-1 rounded shadow">
+                        <pre>{{message.value}}</pre>
+                    </div>
+                    <div class="py-4">
+                        {{messageValue}}
+                    </div>
                 </div>
-                <div class="py-4">
-                    {{messageValue}}
+
+                <div class="mt-4">
+                    <label>Error</label>
+                    <div class="bg-dark text-white px-4 pt-4 pb-2 mt-1 rounded shadow">
+                        <pre>{{message.errors | json}}</pre>
+                    </div>
                 </div>
             </div>
 

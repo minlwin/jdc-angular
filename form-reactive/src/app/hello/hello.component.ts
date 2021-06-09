@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   templateUrl: './hello.component.html',
@@ -8,7 +8,10 @@ import { FormControl } from '@angular/forms';
 })
 export class HelloComponent {
 
-  message = new FormControl
+  message = new FormControl('', [
+    Validators.required,
+    Validators.minLength(10)
+  ])
 
   messageValue = ''
 
