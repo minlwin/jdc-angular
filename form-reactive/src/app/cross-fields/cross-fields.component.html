@@ -1,0 +1,80 @@
+<div class="row">
+
+    <!-- Form -->
+    <div class="col">
+        <div class="card">
+            <div class="card-header">Form</div>
+            <div class="card-body">
+                <form [formGroup]="form">
+                    <!-- Name -->
+                    <div>
+                        <label class="form-label">Product Name</label>
+                        <input formControlName="name" type="text" class="form-control" placeholder="Enter Product Name">
+                    </div>
+
+                    <div class="row mt-2">
+                        <!-- Category -->
+                        <div class="col">
+                            <label class="form-label">Category</label>
+                            <select formControlName="category" class="form-control form-select">
+                                <option value="">Select One</option>
+                                <option *ngFor="let item of categories" [value]="item">{{item}}</option>
+                            </select>
+                        </div>
+
+                        <!-- Brand -->
+                        <div class="col">
+                            <label class="form-label">Brand Name</label>
+                            <input formControlName="brand" type="text" class="form-control"
+                                placeholder="Enter Brand Name">
+                        </div>
+                    </div>
+
+                    <div class="row mt-2" formGroupName="prices">
+                        <!-- Normal Price -->
+                        <div class="col">
+                            <label class="form-label">Price</label>
+                            <input formControlName="normal" type="number" class="form-control"
+                                placeholder="Enter Price">
+                        </div>
+
+                        <!-- Agent Price -->
+                        <div class="col">
+                            <label class="form-label">Agent Price</label>
+                            <input formControlName="agent" type="number" class="form-control"
+                                placeholder="Enter Agent Price">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-primary">Add Property</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+
+        <div class="card">
+            <div class="card-header">Form Value</div>
+            <div class="card-body">
+                <pre>{{form.value | json}}</pre>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header">Form Status</div>
+            <div class="card-body">
+                <pre>{{form.status}}</pre>
+            </div>
+        </div>
+
+
+        <div class="card mt-4">
+            <div class="card-header">Price Error</div>
+            <div class="card-body">
+                <pre>{{form.get('prices')?.errors | json}}</pre>
+            </div>
+        </div>
+    </div>
+</div>
