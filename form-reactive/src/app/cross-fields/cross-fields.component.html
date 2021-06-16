@@ -45,10 +45,29 @@
                                 placeholder="Enter Agent Price">
                         </div>
                     </div>
+
+                    <div class="mt-2" formArrayName="properties">
+                        <label *ngIf="properties.length > 0" class="form-label">Properties</label>
+                        <div class="row" *ngFor="let _ of properties.controls; index as i; first as f" [class.mt-1]="!f"
+                            [formGroupName]="i">
+
+                            <div class="col">
+                                <label *ngIf="f" class="form-label">Name</label>
+                                <input formControlName="name" type="text" class="form-control"
+                                    placeholder="Property Name">
+                            </div>
+
+                            <div class="col">
+                                <label *ngIf="f" class="form-label">Value</label>
+                                <input formControlName="value" type="text" class="form-control"
+                                    placeholder="Property Value">
+                            </div>
+                        </div>
+                    </div>
                 </form>
             </div>
             <div class="card-footer">
-                <button class="btn btn-primary">Add Property</button>
+                <button (click)="addProperty()" class="btn btn-primary">Add Property</button>
             </div>
         </div>
     </div>
@@ -74,6 +93,13 @@
             <div class="card-header">Price Error</div>
             <div class="card-body">
                 <pre>{{form.get('prices')?.errors | json}}</pre>
+            </div>
+        </div>
+
+        <div class="card mt-4">
+            <div class="card-header">Properties Error</div>
+            <div class="card-body">
+                <pre>{{form.get('properties')?.errors | json}}</pre>
             </div>
         </div>
     </div>

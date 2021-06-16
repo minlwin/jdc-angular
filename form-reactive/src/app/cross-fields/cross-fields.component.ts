@@ -20,9 +20,32 @@ export class CrossFieldsComponent {
         agent: new FormControl(0, Validators.min(50)),
         normal: new FormControl(0, Validators.min(50))
       }, this.checkPrices),
-      properties: new FormArray([])
+      properties: new FormArray([], this.checkProperties)
     })
+  }
 
+  addProperty() {
+    this.properties.push(new FormGroup({
+      name: new FormControl,
+      value: new FormControl
+    }))
+  }
+
+  get properties(): FormArray {
+    return this.form.get('properties') as FormArray
+  }
+
+  checkProperties(control: AbstractControl): ValidationErrors | null {
+    const array: any[] = control.value
+
+    for (const value of array) {
+      if (!value.name || !value.value) {
+        return {
+          'property': 'Please enter Property name and value.'
+        }
+      }
+    }
+    return null
   }
 
   checkPrices(control: AbstractControl): ValidationErrors | null {
