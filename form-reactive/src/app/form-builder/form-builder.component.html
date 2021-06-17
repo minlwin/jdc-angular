@@ -1,0 +1,98 @@
+<div class="row">
+
+    <div class="col">
+        <div class="card">
+            <div class="card-header">
+                Form
+            </div>
+
+            <div [formGroup]="form" class="card-body">
+
+                <div class="row">
+                    <div class="col">
+                        <label class="form-label">Category</label>
+                        <select formControlName="category" class="form-control form-select">
+                            <option value="">Select One</option>
+                            <option value="1">Drinks</option>
+                            <option value="2">Foods</option>
+                            <option value="3">Snacks</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label class="form-label">Brand</label>
+                        <input formControlName="brand" type="text" class="form-control" placeholder="Enter Brand">
+                    </div>
+                </div>
+
+                <div class="mt-2">
+                    <label class="form-label">Product</label>
+                    <input formControlName="name" type="text" class="form-control" placeholder="Enter Product Name">
+                </div>
+
+                <div formGroupName="prices" class="row mt-2">
+                    <div class="col">
+                        <label class="form-label">Price</label>
+                        <input formControlName="normal" type="text" class="form-control" placeholder="Enter Price">
+                    </div>
+                    <div class="col">
+                        <label class="form-label">Agent Price</label>
+                        <input formControlName="agent" type="text" class="form-control" placeholder="Enter Agent Price">
+                    </div>
+                </div>
+
+                <div formArrayName="properties" class="mt-4">
+                    <label *ngIf="properties.controls.length > 0" class="form-label">Properties</label>
+
+                    <div *ngFor="let _ of properties.controls; index as i; first as f" [formGroupName]="i" class="row"
+                        [class.mt-2]="!f">
+                        <div class="col">
+                            <label *ngIf="f">Property</label>
+                            <input formControlName="name" type="text" placeholder="Enter Name" class="form-control">
+                        </div>
+                        <div class="col">
+                            <label *ngIf="f">Value</label>
+                            <input formControlName="value" type="text" placeholder="Enter Value" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="card-footer">
+                <button (click)="addProperty()" class="btn btn-primary">
+                    Add Property
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col">
+
+        <!-- Form Value -->
+        <div class="card">
+            <div class="card-header">
+                Form Value ({{form.status}})
+            </div>
+            <div class="card-body">
+                <pre>{{form.value | json}}</pre>
+            </div>
+        </div>
+
+        <!-- Form Group Error -->
+        <div class="card mt-2">
+            <div class="card-header">Prices Error</div>
+            <div class="card-body">
+                <pre>{{form.get('prices')?.errors | json}}</pre>
+            </div>
+        </div>
+
+        <!-- Array Error -->
+        <div class="card mt-2">
+            <div class="card-header">Properties Error</div>
+            <div class="card-body">
+                <pre>{{form.get('properties')?.errors | json}}</pre>
+            </div>
+        </div>
+    </div>
+</div>

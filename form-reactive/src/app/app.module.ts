@@ -7,6 +7,7 @@ import { HelloComponent } from './hello/hello.component';
 import { FormGroupComponent } from './form-group/form-group.component';
 import { FormArrayComponent } from './form-array/form-array.component';
 import { CrossFieldsComponent } from './cross-fields/cross-fields.component';
+import { FormBuilderComponent } from './form-builder/form-builder.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { CrossFieldsComponent } from './cross-fields/cross-fields.component';
     HelloComponent,
     FormGroupComponent,
     FormArrayComponent,
-    CrossFieldsComponent
+    CrossFieldsComponent,
+    FormBuilderComponent
   ],
   imports: [
     BrowserModule,
