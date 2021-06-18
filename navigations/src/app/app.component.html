@@ -1,0 +1,16 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <div class="container">
+        <a href="#" class="navbar-brand">Navigations</a>
+
+        <ul class="navbar-nav">
+
+            <li class="nav-item">
+                <a [routerLink]="['/hello']" routerLinkActive="active" class="nav-link">Hello</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <router-outlet></router-outlet>
+</div>
