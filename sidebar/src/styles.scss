@@ -1,0 +1,30 @@
+@import "../node_modules/bootstrap-icons/font/bootstrap-icons.min.css";
+
+$dropdown-border-radius:0px;
+$nav-pills-border-radius: 0px;
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+
+html, body {
+  height: 100%;
+}
+
+.sidebar.open {
+  width: 240px;
+}
+
+.sidebar.close {
+  width: 60px;
+}
+
+.nav.nav-pills .nav-item:hover {
+  background-color: lightblue;
+  color: white;
+}
+
+.nav.nav-pills .nav-link.active {
+  background-color: blue;
+  color: white;
+}
+
+

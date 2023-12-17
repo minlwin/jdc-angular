@@ -1,0 +1,88 @@
+<div class="bg-light h-100 shadow">
+
+  <div class="sidebar" [class.open]="open" [class.close]="!open">
+    <div class="d-flex p-3" [class.justify-content-between]="open" [class.justify-content-center]="!open">
+      @if (open) {
+        <h4><i class="bi-list"></i> Side Menu</h4>
+      }
+      <h4 (click)="switchState()">
+        @if (open) {
+          <i class="bi-arrow-bar-left"></i>
+        } @else {
+          <i class="bi-list"></i>
+        }
+      </h4>
+    </div>
+
+    <div>
+      <ul class="nav flex-column nav-pills">
+        <li class="nav-item" [class.text-center]="!open">
+          <a [routerLink]="['/home']" routerLinkActive="active" class="nav-link">
+            <i class="bi-speedometer2"></i>
+            @if (open) {
+              <span class="ps-1">Home</span>
+            }
+          </a>
+        </li>
+        <li class="nav-item" [class.text-center]="!open">
+          <a [routerLink]="['/sales']" routerLinkActive="active" class="nav-link">
+            <i class="bi-cart"></i>
+            @if (open) {
+              <span class="ps-1">Sales</span>
+            }
+          </a>
+        </li>
+        <li class="nav-item" [class.text-center]="!open">
+          <a [routerLink]="['/members']" routerLinkActive="active" class="nav-link">
+            <i class="bi-people"></i>
+            @if (open) {
+              <span class="ps-1">Members</span>
+            }
+          </a>
+        </li>
+        <li class="nav-item" [class.text-center]="!open">
+          <a [routerLink]="['/catalogs']" routerLinkActive="active" class="nav-link">
+            <i class="bi-tags"></i>
+            @if (open) {
+              <span class="ps-1">Catalogs</span>
+            }
+          </a>
+        </li>
+        <li class="nav-item" [class.text-center]="!open">
+          <a [routerLink]="['/shop']" routerLinkActive="active" class="nav-link">
+            <i class="bi-shop"></i>
+            @if (open) {
+              <span class="ps-1">Shop</span>
+            }
+          </a>
+        </li>
+        <li class="nav-item dropend" [class.text-center]="!open">
+          <a class="nav-link d-flex" [class.active]="goldPrice || goldQuality" [class.justify-content-between]="open" [class.justify-content-center]="!open" aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown">
+           @if (open) {
+            <span>
+              <i class="bi-gear-fill"></i> Settings
+            </span>
+            <i class="bi-arrow-right"></i>
+           } @else {
+            <i class="bi-gear-fill"></i>
+          }
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li>
+              <a #goldPrice="routerLinkActive" [routerLink]="['/settings/gold-price']" routerLinkActive="active" class="dropdown-item">
+                Gold Price Setting
+              </a>
+            </li>
+            <li>
+              <a #goldQuality="routerLinkActive" [routerLink]="['/settings/gold-quality']" routerLinkActive="active" class="dropdown-item">
+                Gold Quality Setting
+              </a>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+</div>
